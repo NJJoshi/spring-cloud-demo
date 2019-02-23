@@ -48,6 +48,6 @@ public class CurrencyConversionController {
 											  @PathVariable("quantity") BigDecimal quantity) {
 		String port = environment.getProperty("local.server.port");
 		CurrencyConversion obj = proxy.retrieveExchangeValue(from, to);
-		return new CurrencyConversion(obj.getId(), obj.getFrom(), obj.getTo(), obj.getConversionMultiple(), quantity, quantity.multiply(obj.getConversionMultiple()), port);
+		return new CurrencyConversion(obj.getId(), obj.getFrom(), obj.getTo(), obj.getConversionMultiple(), quantity, quantity.multiply(obj.getConversionMultiple()), obj.getPort());
 	}	
 }
